@@ -15,18 +15,27 @@ class ViewController: UIViewController {
     @IBOutlet weak var trueButton: UIButton!
     @IBOutlet weak var falseButton: UIButton!
     
+    let quizArray = ["Four plus two is syx","Asu + Jaran = AsuJaran","Kodok itu ikan"]
+    
+    var quizCount = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        updateUI()
     }
 
-    @IBAction func trueButtonClicked(_ sender: UIButton){
+    @IBAction func answerButtonClicked (_ sender: UIButton){
+        if quizCount < quizArray.count-1{
+            quizCount += 1
+            updateUI()
+        }
         
     }
     
-    @IBAction func falseButtonClicked(_ sender: UIButton){
-        
+    func updateUI(){
+        questionTextLabel.text = quizArray[quizCount]
     }
+    
 
 }
 
