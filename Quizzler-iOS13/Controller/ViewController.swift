@@ -10,11 +10,23 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var questionTextLabel: UILabel!
+    
+    @IBOutlet weak var trueButton: UIButton!
+    @IBOutlet weak var falseButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
 
+    @IBAction func trueButtonClicked(_ sender: UIButton){
+        
+    }
+    
+    @IBAction func falseButtonClicked(_ sender: UIButton){
+        
+    }
 
 }
 
