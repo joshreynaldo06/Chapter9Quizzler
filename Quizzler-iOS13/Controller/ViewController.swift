@@ -11,13 +11,16 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var questionTextLabel: UILabel!
+    @IBOutlet weak var questionProgressView: UIProgressView!
     
     @IBOutlet weak var trueButton: UIButton!
     @IBOutlet weak var falseButton: UIButton!
     
-    let quizArray = [["Four plus two is syx", "True"],["Asu + Jaran = AsuJaran", "True"],["Kodok itu ikan", "False"]]
     
-    var quizCount = 0
+  
+    var quizBrain = QuizBrain()
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,28 +29,33 @@ class ViewController: UIViewController {
 
     @IBAction func answerButtonClicked (_ sender: UIButton){
         
-        let userAnswer = sender.currentTitle
-        let actualAnswer = quizArray[quizCount][1]
         
-        if userAnswer == actualAnswer {
+        
+        let userAnswer = sender.currentTitle!
+        
+        let userGotItRight = quizBrain.checkAnswer(userAnswer)
+//        let actualAnswer = actualQuestion.answer
+ 
+ 
+        if userGotItRight == true{
             print("Bener")
+            sender.backgroundColor = UIColor.green
         } else {
             print("Salah")
+            sender.backgroundColor = UIColor.red
         }
         
-        if quizCount < quizArray.count-1{
-            quizCount += 1
-            updateUI()
-        } else {
-            print("End of the question")
-            quizCount = 0
-            updateUI()
-        }
+        quizBrain.nextQuestion()
+        
+        Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateUI), userInfo: nil, repeats: true)
         
     }
     
-    func updateUI(){
-        questionTextLabel.text = quizArray[quizCount][0]
+    @objc func updateUI(){
+        questionProgressView.progress = quizBrain.getProgress()
+        questionTextLabel.text = quizBrain.getQuestionText()
+        trueButton.backgroundColor = UIColor.clear
+        falseButton.backgroundColor = UIColor.clear
     }
     
 

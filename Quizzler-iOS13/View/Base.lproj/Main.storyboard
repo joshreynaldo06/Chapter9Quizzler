@@ -56,10 +56,9 @@
                                         </state>
                                         <connections>
                                             <action selector="answerButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AHX-La-s0n"/>
-                                            <action selector="falseButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2Ir-gb-n52"/>
                                         </connections>
                                     </button>
-                                    <progressView opaque="NO" contentMode="scaleToFill" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="TXm-qh-7Xg">
+                                    <progressView opaque="NO" contentMode="scaleToFill" progressViewStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="TXm-qh-7Xg">
                                         <rect key="frame" x="0.0" y="808" width="374" height="11"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" red="0.2770131528" green="0.3800790906" blue="0.57570761439999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -86,6 +85,7 @@
                     </view>
                     <connections>
                         <outlet property="falseButton" destination="tbn-vQ-GyC" id="unC-xO-g1T"/>
+                        <outlet property="questionProgressView" destination="TXm-qh-7Xg" id="6EU-tt-udf"/>
                         <outlet property="questionTextLabel" destination="rSI-li-mhO" id="yZJ-Dm-rbC"/>
                         <outlet property="trueButton" destination="oVw-Hl-IRe" id="St4-vO-W0i"/>
                     </connections>
